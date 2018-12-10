@@ -1,58 +1,108 @@
-.wrapper {
-    /* The height needs to be set to a fixed value for the effect to work.
-     * 100vh is the full height of the viewport. */
-    height: 100vh;
-    /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
-    overflow-x: hidden;
-    /* Enable scrolling on the page. */
-    overflow-y: auto;
-    /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-    perspective: 2px;
+@font-face {
+  font-family: 'Overpass Bold';
+  src: url("../font/overpass-bold.otf") format("opentype");
+}  
+  
+  .img-container {
+      overflow: hidden;
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url("../img/bg1.jpg") ;
+      background-size: cover;
+      background-position: center 0;
+      background-repeat: no-repeat;
   }
   
-  .section {
-    /* Needed for children to be absolutely positioned relative to the parent. */
-    position: relative;
-    /* The height of the container. Must be set, but it doesn't really matter what the value is. */
-    height: 100vh;
-  
-    /* For text formatting. */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 0 0 5px #000;
+  .centerer {
+      min-height:100vh;
   }
   
-  .parallax::after {
-    /* Display and position the pseudo-element */
-    content: " ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  
-    /* Move the pseudo-element back away from the camera,
-     * then scale it back up to fill the viewport.
-     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
-    transform: translateZ(-1px) scale(1.5);
-    /* Force the background image to fill the whole element. */
-    background-size: 100%;
-    /* Keep the image from overlapping sibling elements. */
-    z-index: -1;
+  .centerer:before {
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
   }
-  
-  /* The styling for the static div. */
-  .static {
-    background: red;
+
+.title-font{
+  font-family: 'Overpass Bold';
+  font-size: 36px;
+}
+
+.centered {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 
+============= TYPEWRITER EFFECT ===============================
+CREDITS: https://css-tricks.com/snippets/css/typewriter-effect/ 
+*/
+
+  .typewriter-effect {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(13, end),
+      blink-caret .75s step-end infinite;
   }
-  
-  /* Sets the actual background images to adorable kitties. This part is crucial. */
-  .bg1::after {
-    background-image: url('https://placekitten.com/g/900/700');
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0% }
+    to { width: 380px; }
   }
-  
-  .bg2::after {
-    background-image: url('https://placekitten.com/g/800/600');
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
   }
+
+/* 
+============= END TYPEWRITER EFFECT ============================
+*/
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-container .portfolio-item {
+  position: relative;
+  background-color: #f1f1f1;
+  width: 33.333%;
+  height: 18.75%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.portfolio-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-caption {
+  clear: both;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 600px), only screen and (max-device-width: 600px) {
+  .flex-container .portfolio-item {
+    width: 100%;
+    height: auto;
+  }
+}
