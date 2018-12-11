@@ -36,5 +36,41 @@
   </div>
 </section>
 
+<section id="contactme">
+  <div class="contactmeclass">
+    <p class="title-contactme">Talk to Me:</p>
+    <div class="socialmedia-list">
+      <a href="#" target="_blank" class="social-media-icon">
+        <img src="../img/iconfinder_social_media_isometric_14-linkedin_3529657.png">
+      </a>
+      <a href="#" target="_blank" class="social-media-icon">
+        <img src="../img/iconfinder_social_media_isometric_3-instagram_3529653.png">
+      </a>
+      <a href="#" target="_blank" class="social-media-icon">
+          <img src="../img/iconfinder_social_media_isometric_6-twitter_3529664.png">
+      </a>
+      <a href="#" target="_blank" class="social-media-icon">
+          <img src="../img/iconfinder_social_media_isometric_1-facebook_3529651.png">
+      </a>
+      <a href="#" target="_blank" class="social-media-icon">
+          <img src="../img/iconfinder_social_media_isometric_4-pinterest_3529654.png">
+      </a>
+  </div>
+  </div>
+</section>
+
+<section id="endpagefooter">
+  <div class="endpageclass">
+    <p id="dataSite"><!-- SCRIPT BELOW PUTS THE DATE IN HERE--></p>
+  </div>
+</section>
 </body>
+
+<script>
+  var d = new Date();
+  var month = d.getMonth()+1;
+  var year = d.getFullYear();
+  document.getElementById("dataSite").innerHTML = month + " - " + year;
+</script>
+
 </html>
