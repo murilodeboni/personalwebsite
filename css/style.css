@@ -2,34 +2,58 @@
   font-family: 'Overpass Bold';
   src: url("../font/overpass-bold.otf") format("opentype");
 }  
+
+@font-face {
+  font-family: 'BebasNeue Regular';
+  src: url("../font/BebasNeue Regular.otf") format("opentype");
+} 
+
+@font-face {
+  font-family: 'BebasNeue Bold';
+  src: url("../font/BebasNeue Bold.otf") format("opentype");
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+
+.img-container {
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../img/bg1.jpg") ;
+  background-size: cover;
+  background-position: center 0;
+  background-repeat: no-repeat;
+}
   
-  .img-container {
-      overflow: hidden;
-      position: relative;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-image: url("../img/bg1.jpg") ;
-      background-size: cover;
-      background-position: center 0;
-      background-repeat: no-repeat;
-  }
+.centerer {
+  min-height:100vh;
+}
   
-  .centerer {
-      min-height:100vh;
-  }
-  
-  .centerer:before {
-      content: ' ';
-      display: inline-block;
-      vertical-align: middle;
-      height: 100%;
-  }
+.centerer:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
 
 .title-font{
   font-family: 'Overpass Bold';
   font-size: 36px;
+}
+
+.description-font{
+  font-family: 'Overpass Bold';
+  font-size: 24px;
+  text-align: justify;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  color: white;
+  margin: 0;
 }
 
 .centered {
@@ -37,6 +61,45 @@
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.centered-down {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inrto-website-class a {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font : normal 400 20px/1 'Josefin Sans', sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: all 0.35s ease-in-out;
+}
+.inrto-website-class a:hover {
+  opacity: .5;
+}
+
+#intro-website a span {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
 }
 
 /* 
@@ -84,6 +147,19 @@ CREDITS: https://css-tricks.com/snippets/css/typewriter-effect/
   font-size: 30px;
 }
 
+.image-caption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #484848;
+}
+
 .portfolio-image {
   width: auto;
   height: auto;
@@ -93,16 +169,71 @@ CREDITS: https://css-tricks.com/snippets/css/typewriter-effect/
 }
 
 .image-caption {
-  clear: both;
-  position: absolute;
-  top: 20%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.image-caption p{
+  font-family: 'BebasNeue Regular';
+  color: white;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  text-decoration: underline overline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: 50%;
+}
+
+.portfolio-item:hover .image-caption {
+  opacity: 0.5;
+}
+
 @media only screen and (max-width: 600px), only screen and (max-device-width: 600px) {
+  
   .flex-container .portfolio-item {
     width: 100%;
     height: auto;
   }
+
+  .title-font{
+    font-family: 'Overpass Bold';
+    font-size: 48px;
+  }
+  
+  .description-font{
+    font-family: 'Overpass Bold';
+    font-size: 42px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 0;
+  }
+
+  .image-caption p{
+    font-family: 'BebasNeue Bold';
+    color: white;
+    font-size: 48px;
+    letter-spacing: 0.2em;
+    text-decoration: underline overline;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    color: white;
+    margin: 0;
+    
+  }
+
+  .image-caption{
+    background-color: transparent;
+    opacity: 0.7;
+    height: 20%;
+  }
+
 }
